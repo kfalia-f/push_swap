@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:53:43 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 19:50:30 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 21:28:26 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,22 @@ t_stack		*ft_new_node()
 	node->next = NULL;
 	node->num = -1;
 	return (node);
+}
+
+void	ft_free_stack(t_stack *head)
+{
+	t_stack *tmp;
+
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+}
+
+void	ft_free_ab(t_ab *ab)
+{
+	ft_free_stack(ab->a);
+	ft_free_stack(ab->b);
 }
