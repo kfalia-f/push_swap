@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:13:39 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 18:29:21 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 19:50:28 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	ft_new_ab(&ab);
-//	ft_int_cats(ac, av, &ab);
+	if (!ft_int_cast(ac, av, &ab))
+		return (0);
+	while (ab.a->next)
+	{
+		ft_putnbr(ab.a->num);
+		ab.a = ab.a->next;
+	}
 	return (0);
 }

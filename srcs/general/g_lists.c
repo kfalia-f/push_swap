@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:53:43 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 18:29:19 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 19:50:30 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,17 @@ void	ft_new_ab(t_ab *head)
 	head->a_len = 0;
 	head->b_len = 0;
 }
-/*
-void	ft_new_node(t_stack **head)
-{
-	*head->next = NULL;
 
-}*/
+t_stack		*ft_new_node()
+{
+	t_stack	*node;
+
+	if (!(node = (t_stack *)malloc(sizeof(t_stack))))
+	{
+		ft_putstr_base("doesn't malloced for a new node\n", 2);
+		return (NULL);
+	}
+	node->next = NULL;
+	node->num = -1;
+	return (node);
+}

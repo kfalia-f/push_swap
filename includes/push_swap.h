@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 16:21:28 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 18:21:50 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 19:35:29 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ typedef struct		s_ab
 //general
 int					ft_test();
 int					ft_valid(int ac, char **av);
+int					ft_int_cast(int ac, char **av, t_ab *ab);
 void				ft_new_ab(t_ab *head);
+t_stack				*ft_new_node();
 #endif
