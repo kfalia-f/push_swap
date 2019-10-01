@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:53:43 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 21:28:26 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 23:07:11 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 void	ft_new_ab(t_ab *head)
 {
-	head->a = (t_stack *)malloc(sizeof(t_stack));
-	head->a->next = NULL;
-	head->a->num = -1;
-	head->b = (t_stack *)malloc(sizeof(t_stack));
-	head->b->next = NULL;
-	head->b->num = -1;
+	head->a = NULL;
+	head->b = NULL;
 	head->a_len = 0;
 	head->b_len = 0;
 }
@@ -54,4 +50,17 @@ void	ft_free_ab(t_ab *ab)
 {
 	ft_free_stack(ab->a);
 	ft_free_stack(ab->b);
+}
+
+int		ft_lstlen(t_stack *head)
+{
+	int		count;
+
+	count = 0;
+	while (head)
+	{
+		head = head->next;
+		count++;
+	}
+	return (count);
 }

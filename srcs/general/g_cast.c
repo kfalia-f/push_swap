@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:39:27 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 19:50:31 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 23:07:09 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ int		ft_int_cast(int ac, char **av, t_ab *ab)
 	int		num;
 
 	i = 1;
-	head = ab->a;
+	head = ft_new_node();
 	tmp = head;
 	while (i < ac)
 	{
 		if ((num = ft_atoi(av[i])) < 0)
 			return (ft_error());
-		tmp->num = num;
-		tmp->next = ft_new_node();
-		tmp = tmp->next;
 		i++;
+		tmp->num = num;
+		if (i < ac)
+			tmp->next = ft_new_node();
+		tmp = tmp->next;
 	}
 	ab->a = head;
 	return (1);

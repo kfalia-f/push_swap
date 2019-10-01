@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 20:58:10 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 21:37:48 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 22:54:34 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_parser(char bf[1000], t_ab *ab)
 {
+	ab->a_len = ft_lstlen(ab->a);
+	ab->b_len = ft_lstlen(ab->b);
 	if (ft_strequ(bf, "sa\n") || ft_strequ(bf, "sb\n") || ft_strequ(bf, "ss\n"))
 		ft_swap(bf, ab);
 	else if (ft_strequ(bf, "pa\n") || ft_strequ(bf, "pb\n"))

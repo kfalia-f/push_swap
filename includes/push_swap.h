@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 16:21:28 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 21:34:13 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/01 22:53:32 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int					ft_int_cast(int ac, char **av, t_ab *ab);
 void				ft_new_ab(t_ab *head);
 t_stack				*ft_new_node();
 void				ft_free_ab(t_ab *ab);
+int					ft_lstlen(t_stack *head);
 
 //checker
 void				ft_read_commands(t_ab *ab);
