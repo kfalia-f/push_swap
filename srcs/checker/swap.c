@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 21:28:37 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 22:55:16 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/02 21:54:04 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void	ft_swap_b(t_ab *ab)
 
 void	ft_swap(char bf[1000], t_ab *ab)
 {
-	printf("len a = %d, len b = %d\n", ab->a_len, ab->b_len);
-	printf("BEFORE 1 = %d 2 = %d\n", ab->a->num, ab->a->next->num);
 	if (ft_strequ(bf, "sa\n"))
 		ft_swap_a(ab);
 	else if (ft_strequ(bf, "sb\n"))
@@ -47,5 +45,4 @@ void	ft_swap(char bf[1000], t_ab *ab)
 		ft_swap_a(ab);
 		ft_swap_b(ab);
 	}
-	printf("AFTER 1 = %d 2 = %d\n", ab->a->num, ab->a->next->num);
 }
