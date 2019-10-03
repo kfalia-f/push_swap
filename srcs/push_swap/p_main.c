@@ -6,15 +6,31 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:14:13 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 17:14:14 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/03 23:43:15 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int main()
+int main(int ac, char **av)
 {
-	printf("PUSH_SWAP --- OK\n");
-	ft_test();
+	t_ab	ab;
+	if (!ft_valid(ac, av))
+	{
+		ft_putstr_base("Error\n", 2);
+		return (0);
+	}
+	ft_new_ab(&ab);
+	if (!ft_int_cast(ac, av, &ab))
+		return (0);
+	if (!ft_valid_nums(&ab))
+	{
+		ft_free_ab(&ab);
+		ft_putstr_base("Error\n", 2);
+		return (0);
+	}
+	if (!ft_check_alg(&ab))
+		ft_alg(&ab);
+	ft_free_ab(&ab);
 	return (0);
 }

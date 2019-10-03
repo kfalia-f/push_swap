@@ -6,12 +6,12 @@
 /*   By: koparker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 22:57:29 by koparker          #+#    #+#             */
-/*   Updated: 2019/04/28 13:25:18 by koparker         ###   ########.fr       */
+/*   Updated: 2019/10/03 18:31:01 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define BF_SIZE 1
 #include <libft.h>
-
 /*
 ** task-specific strjoin function.
 ** In the first call of the gnl-function holder is empty,
@@ -51,7 +51,7 @@ static void	read_line(int fd, char **holder, char *buf)
 	int		ret;
 	char	*tmp;
 
-	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+	while ((ret = read(fd, buf, BF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
 		tmp = holder[fd];
@@ -94,9 +94,9 @@ int			get_next_line(const int fd, char **line)
 	static char		*holder[MAX_FDS];
 	char			*buf;
 
-	if (fd < 0 || read(fd, NULL, 0) < 0 || line == NULL || BUFF_SIZE <= 0)
+	if (fd < 0 || read(fd, NULL, 0) < 0 || line == NULL || BF_SIZE <= 0)
 		return (-1);
-	if (!(buf = ft_memalloc(BUFF_SIZE + 1)))
+	if (!(buf = ft_memalloc(BF_SIZE + 1)))
 		return (-1);
 	read_line(fd, holder, buf);
 	free(buf);

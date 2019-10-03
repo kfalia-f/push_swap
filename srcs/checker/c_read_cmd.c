@@ -6,13 +6,13 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 20:58:10 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/02 22:12:42 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/03 18:44:17 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_parser(char bf[1000], t_ab *ab)
+void	ft_parser(char bf[BUFF_SIZE], t_ab *ab)
 {
 	ab->a_len = ft_lstlen(ab->a);
 	ab->b_len = ft_lstlen(ab->b);
@@ -70,10 +70,10 @@ void	ft_write(t_ab *ab)
 
 void	ft_read_commands(t_ab *ab)
 {
-	char	bf[1000];
+	char	bf[BUFF_SIZE];
 	int		ret;
 
-	while ((ret = read(1, bf, 1000)) > 0)
+	while ((ret = read(1, bf, BUFF_SIZE)) > 0)
 	{
 		bf[ret] = '\0';
 		if (bf[0] == '\n')

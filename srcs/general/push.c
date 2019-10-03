@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 21:31:14 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/02 22:10:49 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/03 18:24:40 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_push_a(t_ab *ab)
 	ab->b_len -= 1;
 }
 
-void	ft_push(char bf[1000], t_ab *ab)
+void	ft_push(char bf[BUFF_SIZE], t_ab *ab)
 {
 	if (ft_strequ(bf, "pa\n"))
 		ft_push_a(ab);

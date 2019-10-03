@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_main.c                                           :+:      :+:    :+:   */
+/*   p_check.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 17:13:39 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/03 23:23:43 by kfalia-f         ###   ########.fr       */
+/*   Created: 2019/10/03 23:25:17 by kfalia-f          #+#    #+#             */
+/*   Updated: 2019/10/03 23:45:44 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		main(int ac, char **av)
+int		ft_check_alg(t_ab *ab)
 {
-	t_ab	ab;
-	if (!ft_valid(ac, av))
-	{
-		ft_putstr_base("Error\n", 2);
+	t_stack *tmp;
+
+	tmp = ab->a;
+	if (ab->b != NULL)
 		return (0);
-	}
-	ft_new_ab(&ab);
-	if (!ft_int_cast(ac, av, &ab))
-		return (0);
-	if (!ft_valid_nums(&ab))
+	while (tmp->next)
 	{
-		ft_free_ab(&ab);
-		ft_putstr_base("Error\n", 2);
-		return (0);
+		if (tmp->num > tmp->next->num)
+			return (0);
+		tmp = tmp->next;
 	}
-	if (!ft_check_stack_a(&ab))
-	{
-		ft_read_commands(&ab);
-		ft_check_stack(&ab, 2);
-	}
-	ft_free_ab(&ab);
-	return (0);
+	return (1);
 }

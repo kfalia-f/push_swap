@@ -1,39 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_main.c                                           :+:      :+:    :+:   */
+/*   c_check.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 17:13:39 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/03 23:23:43 by kfalia-f         ###   ########.fr       */
+/*   Created: 2019/10/03 19:17:49 by kfalia-f          #+#    #+#             */
+/*   Updated: 2019/10/03 23:23:42 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		main(int ac, char **av)
+int		ft_check_stack(t_ab *ab, int flag)
 {
-	t_ab	ab;
-	if (!ft_valid(ac, av))
+	t_stack *tmp;
+
+	tmp = ab->a;
+	if (flag == 2)
+		if (ab->b != NULL)
+		{
+			ft_putstr("KO\n");
+			return (0);
+		}
+	while (tmp->next)
 	{
-		ft_putstr_base("Error\n", 2);
-		return (0);
+		if (tmp->num > tmp->next->num)
+		{
+			if (flag != 0)
+				ft_putstr("KO\n");
+			return (0);
+		}
+		tmp = tmp->next;
 	}
-	ft_new_ab(&ab);
-	if (!ft_int_cast(ac, av, &ab))
-		return (0);
-	if (!ft_valid_nums(&ab))
+	ft_putstr("OK\n");
+	return (1);
+}
+
+int		ft_check_stack_a(t_ab *ab)
+{
+	if (ab->a_len <= 1)
 	{
-		ft_free_ab(&ab);
-		ft_putstr_base("Error\n", 2);
-		return (0);
+		ft_putstr("OK\n");
+		return (1);
 	}
-	if (!ft_check_stack_a(&ab))
-	{
-		ft_read_commands(&ab);
-		ft_check_stack(&ab, 2);
-	}
-	ft_free_ab(&ab);
+	if (ft_check_stack(ab, 0))
+		return (1);
 	return (0);
 }

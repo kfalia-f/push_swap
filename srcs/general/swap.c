@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 21:28:37 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/02 21:54:04 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/03 18:25:53 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_swap_b(t_ab *ab)
 	ab->b->next->num = c;
 }
 
-void	ft_swap(char bf[1000], t_ab *ab)
+void	ft_swap(char bf[BUFF_SIZE], t_ab *ab)
 {
 	if (ft_strequ(bf, "sa\n"))
 		ft_swap_a(ab);

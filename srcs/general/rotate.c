@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 21:31:44 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/02 22:19:36 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/03 23:38:17 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,13 @@ void	ft_rotate_b(t_ab *ab)
 	b->next = NULL;
 }
 
-void	ft_rotate(char bf[1000], t_ab *ab)
+void	ft_rotate_ab(t_ab *ab)
+{
+	ft_rotate_b(ab);
+	ft_rotate_a(ab);
+}
+
+void	ft_rotate(char bf[BUFF_SIZE], t_ab *ab)
 {
 	if (ft_strequ(bf, "ra\n"))
 		ft_rotate_a(ab);
