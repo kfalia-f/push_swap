@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:14:13 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/03 23:43:15 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/07 20:27:30 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int main(int ac, char **av)
 	}
 	ft_new_ab(&ab);
 	if (!ft_int_cast(ac, av, &ab))
+	{
+		ft_write(&ab);
 		return (0);
+	}
 	if (!ft_valid_nums(&ab))
 	{
 		ft_free_ab(&ab);

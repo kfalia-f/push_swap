@@ -6,11 +6,25 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:13:13 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/03 19:17:34 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/07 20:10:38 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+int		ft_valid_str(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int		ft_valid(int ac, char **av)
 {
@@ -18,6 +32,8 @@ int		ft_valid(int ac, char **av)
 	int		j;
 
 	i = 1;
+	if (ac == 2)
+		return (ft_valid_str(av[1]));
 	while (i < ac)
 	{
 		j = 0;

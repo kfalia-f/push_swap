@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 23:28:23 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/07 18:16:03 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/07 20:27:32 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_check_a_sort(t_ab *ab)
 void	ft_sort_a(t_ab *ab)
 {
 	ft_max_min(ab);
-	printf("max = %d, min = %d\n", ab->a_max, ab->a_min);
+//	printf("max = %d, min = %d\n", ab->a_max, ab->a_min);
 	while (!ft_check_a_sort(ab))
 	{
 		if (ab->a->num == ab->a_max)
@@ -56,50 +56,39 @@ void	ft_minmax_spot(t_ab *ab)
 	ft_push_a(ab, 1);
 }
 
-void	ft_find_spot(t_ab *ab, int flag)
+int     ft_last_num(t_ab *ab)
 {
-	int		f;
-	int		b;
-	t_stack	*tmp;
+	t_stack *tmp;
+	int     i;
+
+	i = 0;
+	tmp = ab->a;
+	while (i++ < ab->a_len - 1)
+		tmp = tmp->next;
+	return (tmp->num);
+}
+
+void    ft_find_spot(t_ab *ab, int flag)
+{
+	int     fst;
+	int     last;
+	t_stack *tmp;
+
 	flag = 0;
 	tmp = ab->a;
-	f = 0;
-	b = 0;
-	//printf("min = %d, max = %d\n", ab->a_min, ab->a_max);
-/*	if (ab->b->num > ab->a_max || ab->b->num < ab->a_min)
+	while (1)
 	{
-		ft_minmax_spot(ab);
-		return ;
-	}
-	while (ab->b->num < tmp->num && tmp)
-	{
-		b++;
-		tmp = tmp->next;
-	}
-	tmp = ab->a;
-	while (tmp && ab->b->num > tmp->num)
-	{
-		f++;
-		tmp = tmp->next;
-	}
-	printf("f = %d, b = %d\n", f, b);
-	if (f > b)
-		while (f-- > 0)
-			ft_rotate_a(ab, 1);
-	else
-		while (b-- >= 0)
-			ft_rotate_a(ab, 1);
-	else
-	{
-		while (ab->a->num > ab->b->num)
+		fst = ab->a->num;
+		last = ft_last_num(ab);
+		if (ab->b->num > ab->a_max || ab->b->num < ab->a_min)
 		{
-			ft_rotate_a(ab, 1);
-	//		ft_write(ab);
+			ft_minmax_spot(ab);
+			return ;
 		}
-		ft_write(ab);
+		if (ab->b->num > last && ab->b->num < fst)
+			break ;
 		ft_rotate_a(ab, 1);
-		ft_putstr("3\n");
-	}*/
+	}
 	ft_push_a(ab, 1);
 }
 
@@ -110,19 +99,19 @@ void	ft_alg(t_ab *ab)
 	while (ab->a_len > 3)
 		ft_push_b(ab, 1);
 	ft_sort_a(ab);
-	ft_write(ab);
+//	ft_write(ab);
 	while (ab->b_len > 0)
 	{
 		ft_max_min(ab);
 		ft_find_spot(ab, ab->b_len > ab->a_len);
-		ft_write(ab);
+//		ft_write(ab);
 	}
-	ft_write(ab);
-	return ;
+//	ft_write(ab);
+//	return ;
 	while (ft_check_alg(ab) == 0)
 	{
 		ft_rotate_a(ab, 1);
-//		ft_write(ab);
+//				ft_write(ab);
 	}
 //	ft_write(ab);
 }
