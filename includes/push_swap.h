@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 16:21:28 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/03 23:47:15 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/07 15:23:51 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct		s_ab
 	struct s_stack	*b;
 	int				a_len;
 	int				b_len;
+	int				a_max;
+	int				a_min;
 }					t_ab;
 
 //general
@@ -43,19 +45,19 @@ t_stack				*ft_new_node();
 void				ft_free_ab(t_ab *ab);
 int					ft_lstlen(t_stack *head);
 void				ft_swap(char bf[BUFF_SIZE], t_ab *ab);
-void				ft_swap_a(t_ab *ab);
-void				ft_swap_b(t_ab *ab);
+void				ft_swap_a(t_ab *ab, int fl);
+void				ft_swap_b(t_ab *ab, int fl);
 void				ft_push(char bf[BUFF_SIZE], t_ab *ab);
-void				ft_push_a(t_ab *ab);
-void				ft_push_b(t_ab *ab);
+void				ft_push_a(t_ab *ab, int fl);
+void				ft_push_b(t_ab *ab, int fl);
 void				ft_rotate(char bf[BUFF_SIZE], t_ab *ab);
-void				ft_rotate_a(t_ab *ab);
-void				ft_rotate_b(t_ab *ab);
-void				ft_rotate_ab(t_ab *ab);
+void				ft_rotate_a(t_ab *ab, int fl);
+void				ft_rotate_b(t_ab *ab, int fl);
+void				ft_rotate_ab(t_ab *ab, int fl);
 void				ft_reverse_rotate(char bf[BUFF_SIZE], t_ab *ab);
-void				ft_rev_rotate_a(t_ab *ab);
-void				ft_rev_rotate_b(t_ab *ab);
-void				ft_rev_rotate_ab(t_ab *ab);
+void				ft_rev_rotate_a(t_ab *ab, int fl);
+void				ft_rev_rotate_b(t_ab *ab, int fl);
+void				ft_rev_rotate_ab(t_ab *ab, int fl);
 
 //checker
 void				ft_read_commands(t_ab *ab);
@@ -65,6 +67,7 @@ int					ft_check_stack_a(t_ab *ab);
 //push_swap
 int					ft_check_alg(t_ab *ab);
 void				ft_alg(t_ab *ab);
+void				ft_max_min(t_ab *ab);
 
 
 

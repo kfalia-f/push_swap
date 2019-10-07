@@ -6,13 +6,13 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 21:32:54 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/03 23:38:58 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/07 14:35:26 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_rev_rotate_a(t_ab *ab)
+void	ft_rev_rotate_a(t_ab *ab, int fl)
 {
 	t_stack *tmp;
 	t_stack	*prev;
@@ -27,9 +27,11 @@ void	ft_rev_rotate_a(t_ab *ab)
 	tmp->next = ab->a;
 	ab->a = tmp;
 	prev->next = NULL;
+	if (fl)
+		write(1, "rra\n", 4);
 }
 
-void	ft_rev_rotate_b(t_ab *ab)
+void	ft_rev_rotate_b(t_ab *ab, int fl)
 {
 	t_stack *tmp;
 	t_stack	*prev;
@@ -44,23 +46,24 @@ void	ft_rev_rotate_b(t_ab *ab)
 	tmp->next = ab->b;
 	ab->b = tmp;
 	prev->next = NULL;
+	if (fl)
+		write(1, "rrb\n", 4);
 }
 
-void	ft_rev_rotate_ab(t_ab *ab)
+void	ft_rev_rotate_ab(t_ab *ab, int fl)
 {
-	ft_rev_rotate_a(ab);
-	ft_rev_rotate_b(ab);
+	ft_rev_rotate_a(ab, fl);
+	ft_rev_rotate_b(ab, fl);
+	if (fl)
+		write(1, "rrr\n", 4);
 }
 
 void	ft_reverse_rotate(char bf[BUFF_SIZE], t_ab *ab)
 {
 	if (ft_strequ(bf, "rra\n"))
-		ft_rev_rotate_a(ab);
+		ft_rev_rotate_a(ab, 0);
 	else if (ft_strequ(bf, "rrb\n"))
-		ft_rev_rotate_b(ab);
+		ft_rev_rotate_b(ab, 0);
 	else
-	{
-		ft_rev_rotate_a(ab);
-		ft_rev_rotate_b(ab);
-	}
+		ft_rev_rotate_ab(ab, 0);
 }

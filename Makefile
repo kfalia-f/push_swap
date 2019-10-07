@@ -6,7 +6,7 @@
 #    By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/27 18:48:23 by kfalia-f          #+#    #+#              #
-#    Updated: 2019/10/03 23:40:40 by kfalia-f         ###   ########.fr        #
+#    Updated: 2019/10/07 15:11:02 by kfalia-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,10 @@ PS_FOLD = srcs/push_swap
 CH_FOLD = srcs/checker
 
 GEN_SRC = $(GEN_FOLD)/test.c $(GEN_FOLD)/g_valid.c $(GEN_FOLD)/g_lists.c $(GEN_FOLD)/g_cast.c \
-		  $(GEN_FOLD)/push.c $(GEN_FOLD)/rotate.c $(GEN_FOLD)/rev_rotate.c $(GEN_FOLD)/swap.c
+		  $(GEN_FOLD)/push.c $(GEN_FOLD)/rotate.c $(GEN_FOLD)/rev_rotate.c $(GEN_FOLD)/swap.c \
+		  $(GEN_FOLD)/write.c
 
-PS_SRC = $(PS_FOLD)/p_main.c $(PS_FOLD)/p_alg.c $(PS_FOLD)/p_check.c
+PS_SRC = $(PS_FOLD)/p_main.c $(PS_FOLD)/p_alg.c $(PS_FOLD)/p_check.c $(PS_FOLD)/p_helpers.c
 
 CH_SRC = $(CH_FOLD)/c_main.c $(CH_FOLD)/c_read_cmd.c $(CH_FOLD)/c_check.c
 

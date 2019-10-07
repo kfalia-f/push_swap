@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 17:53:43 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/01 23:07:11 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/07 17:01:15 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_new_ab(t_ab *head)
 	head->b = NULL;
 	head->a_len = 0;
 	head->b_len = 0;
+	head->a_max = -2147483648;
+	head->a_min = 2147483647;
 }
 
 t_stack		*ft_new_node()

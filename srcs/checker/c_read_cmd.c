@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 20:58:10 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/03 18:44:17 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/07 14:25:00 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,40 +32,6 @@ void	ft_parser(char bf[BUFF_SIZE], t_ab *ab)
 		ft_free_ab(ab);
 		exit(0);
 	}
-}
-
-void	ft_write(t_ab *ab)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	a = ab->a;
-	b = ab->b;
-	printf("a_len = %d, b_len = %d\n", ab->a_len, ab->b_len);
-	if (a)
-	{
-		printf("a: ");
-		while (a)
-		{
-			printf("%d ", a->num);
-			a = a->next;
-		}
-		printf("\n");
-	}
-	else
-		printf("a is empty\n");
-	if (b)
-	{
-		printf("b: ");
-		while (b)
-		{
-			printf("%d ", b->num);
-			b = b->next;
-		}
-		printf("\n");
-	}
-	else
-		printf("b is empty\n");
 }
 
 void	ft_read_commands(t_ab *ab)
