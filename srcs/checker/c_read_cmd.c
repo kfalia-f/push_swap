@@ -6,11 +6,18 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 20:58:10 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/07 14:25:00 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/11 20:26:40 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	ft_error_r(t_ab *ab)
+{
+	ft_putstr("Error\n");
+	ft_free_ab(ab);
+	exit(0);
+}
 
 void	ft_parser(char bf[BUFF_SIZE], t_ab *ab)
 {
@@ -27,24 +34,36 @@ void	ft_parser(char bf[BUFF_SIZE], t_ab *ab)
 			|| ft_strequ(bf, "rrr\n"))
 		ft_reverse_rotate(bf, ab);
 	else
-	{
-		ft_putstr("Error\n");
-		ft_free_ab(ab);
-		exit(0);
-	}
+		ft_error_r(ab);
 }
 
 void	ft_read_commands(t_ab *ab)
 {
-	char	bf[BUFF_SIZE];
+	char	bf;
+	char	tmp[BUFF_SIZE];
 	int		ret;
+	int		i;
 
-	while ((ret = read(1, bf, BUFF_SIZE)) > 0)
+	ft_bzero(tmp, 5);
+	bf = '\0';
+	i = -1;
+	while ((ret = read(0, &bf, 1)) > 0)
 	{
-		bf[ret] = '\0';
-		if (bf[0] == '\n')
-			break ;
-		ft_parser(bf, ab);
-		ft_write(ab);
+		if (bf && i < 3)
+			tmp[++i] = bf;
+		if (tmp[i] == '\n')
+		{
+			tmp[++i] = '\0';
+			if (ft_strlen(tmp) == 1)
+				return ;
+			ft_parser(tmp, ab);
+			ft_bzero(tmp, 5);
+			i = -1;
+		}
+		if (i == 3 && bf != '\n')
+			ft_error_r(ab);
+	//	ft_write(ab);
 	}
+	if (ft_strlen(tmp) > 1)
+		ft_error_r(ab);
 }

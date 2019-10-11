@@ -6,14 +6,14 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 16:21:28 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/07 15:23:51 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/11 17:11:21 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define BUFF_SIZE 1000
+# define BUFF_SIZE 5
 
 # include <stdio.h>
 # include <unistd.h>

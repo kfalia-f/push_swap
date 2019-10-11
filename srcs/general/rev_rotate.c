@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 21:32:54 by kfalia-f          #+#    #+#             */
-/*   Updated: 2019/10/07 14:35:26 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:24:11 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	ft_rev_rotate_b(t_ab *ab, int fl)
 
 void	ft_rev_rotate_ab(t_ab *ab, int fl)
 {
-	ft_rev_rotate_a(ab, fl);
-	ft_rev_rotate_b(ab, fl);
+	ft_rev_rotate_a(ab, 0);
+	ft_rev_rotate_b(ab, 0);
 	if (fl)
 		write(1, "rrr\n", 4);
 }
